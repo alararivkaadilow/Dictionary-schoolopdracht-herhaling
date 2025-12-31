@@ -20,10 +20,24 @@ namespace Prb.Oe.Dictionaries.Soccerteam.Wpf
 
         public void VerbindDictionariesmetLijst()
         {
-            lstTeam.ItemsSource = HeleTeam;
+
+            MaakNepVoetballers();
+            lstTeamNumbers.ItemsSource = HeleTeam.Keys;
+            lstTeam.ItemsSource = HeleTeam.Values;
             lstTeamNextGame.ItemsSource = WedstrijdTeam;
             lstReserveNextGame.ItemsSource = ReserverseSpelers;
         }
+
+        public void MaakNepVoetballers()
+        {
+            HeleTeam.Add(12, "Lionel Messi");
+            HeleTeam.Add(22, "Cristiano Ronaldo");
+            HeleTeam.Add(18, "Kylian Mbappé");
+            HeleTeam.Add(44, "Kevin De Bruyne");
+
+            lstTeam.Items.Refresh();
+        }
+
         
         
         public MainWindow()
