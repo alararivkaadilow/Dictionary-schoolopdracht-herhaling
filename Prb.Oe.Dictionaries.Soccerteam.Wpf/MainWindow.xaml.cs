@@ -20,12 +20,22 @@ namespace Prb.Oe.Dictionaries.Soccerteam.Wpf
 
         public void VerbindDictionariesmetLijst()
         {
-
             MaakNepVoetballers();
             lstTeamNumbers.ItemsSource = HeleTeam.Keys;
             lstTeam.ItemsSource = HeleTeam.Values;
             lstTeamNextGame.ItemsSource = WedstrijdTeam;
             lstReserveNextGame.ItemsSource = ReserverseSpelers;
+        }
+
+
+        public void WeergaveMethode(int sleutel)
+        {
+            if (sleutel > 0)
+            {
+                string spelernaam = HeleTeam[sleutel];
+                lblPlayerName.Content = spelernaam;
+                lblPlayerNumber.Content = sleutel;
+            }
         }
 
         public void MaakNepVoetballers()
@@ -88,7 +98,8 @@ namespace Prb.Oe.Dictionaries.Soccerteam.Wpf
 
         private void LstTeamNumbers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            int sleutel = (int)lstTeamNumbers.SelectedItem;
+            WeergaveMethode(sleutel);
         }
 
         private void LstTeamNextGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
