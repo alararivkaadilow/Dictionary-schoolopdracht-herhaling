@@ -8,11 +8,28 @@ namespace Prb.Oe.Dictionaries.Soccerteam.Wpf
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    
     public partial class MainWindow : Window
     {
+        Dictionary <int, string> HeleTeam = new Dictionary <int, string> ();
+        Dictionary<int, string> WedstrijdTeam = new Dictionary <int, string> ();
+        Dictionary<int, string> ReserverseSpelers = new Dictionary <int, string> ();
+
+
+        public void VerbindDictionariesmetLijst()
+        {
+            lstTeam.ItemsSource = HeleTeam;
+            lstTeamNextGame.ItemsSource = WedstrijdTeam;
+            lstReserveNextGame.ItemsSource = ReserverseSpelers;
+        }
+        
+        
         public MainWindow()
         {
             InitializeComponent();
+            VerbindDictionariesmetLijst();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
